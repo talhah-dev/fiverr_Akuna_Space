@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akuna Space</title>
+
+    <!-- Favicons -->
+    <!-- <link rel="shortcut icon" href="/docs/assets/images/logo.png" type="image/x-icon"> -->
+
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="/docs/Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+
+    <section class="h-screen relative">
+        <!-- Video background -->
+        <video id="background-video" autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+            <source
+                src="https://res.cloudinary.com/dixhnqcby/video/upload/v1753973718/WhatsApp_Video_2025-07-31_at_7.12.33_AM_lk2em1.mp4"
+                type="video/mp4">
+        </video>
+
+        <!-- Overlay with text in the middle -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center text-white">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-1 md:text-4xl uppercase tracking-[.2rem]">Akuna Space</h1>
+                <p class="tracking-wider">ARTIST MANAGEMENT</p>
+            </div>
+        </div>
+
+        <!-- Play/Pause Icon -->
+        <!-- Play/Pause Icon -->
+        <div class="absolute top-4 right-4 text-white">
+            <button id="playPauseButton" class="text-2xl text-zinc-200">
+                <i id="pauseIcon" class="fas fa-play"></i>
+                <i id="playIcon" class="fas fa-pause !hidden"></i>
+            </button>
+        </div>
+
+
+        <!-- Popup -->
+
+        <div id="popup" class="popup fixed fadeIn inset-0 bg-black/60 flex justify-center items-center z-50">
+            <div
+                class="bg-[#212529] p-6 rounded-md w-11/12 md:w-1/2 max-w-xl text-center relative ">
+                <div class="overflow-y-auto max-h-[80vh] hide-scrollbar">
+                    <button id="closePopup">
+                        <i
+                            class="fa-solid text-zinc-400 fa-xmark  text-2xl text-sm cursor-pointer absolute top-4 right-4"></i>
+                    </button>
+                    <h2 class="mb-2 text-white text-sm font-black tracking-[.3rem]">MACORMA GMBH</h2>
+                    <h2 class="mb-8 text-white text-sm tracking-[.2rem]">ARTIST MANAGEMENT</h2>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> KOEPENICKER STR. 6A | 10997 BERLIN</p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> T: +49 (0) 30 695 060 25</p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> rose.at.akuna@gmail.com</p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> Managing Director: Markus Scholz</p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> Amtsgericht Charlottenburg, HRB 192869B</p>
+                    <h2 class="mb-2 text-white text-sm font-black tracking-[.2rem] mt-10">Data Privacy</h2>
+                    <p class="mb-2 text-white text-sm font-medium">
+                        Protection of personal data <br>
+                        We explicitly point out that data transmitted over the Internet (e.g. via email communications)
+                        contains security gaps and cannot be entirely protected against access by third parties.
+                        <br><br>
+                        Macorma GmbH treats all of the data it collects, saves and uses in accordance with the
+                        applicable
+                        statutory provisions, in particular the current Federal Data Protection Act
+                        (Bundesdatenschutzgesetz
+                        – BDSG). Personal data is data that reveals your identity (e.g. name, address, phone, email). We
+                        treat all personal information you provide us confidentially. Macorma GmbH will not pass on your
+                        data to third parties without first obtaining your consent or unless Macorma GmbH is legally
+                        obliged
+                        to do so.
+                        <br><br>
+                        E-mail security <br>
+                        When you send us an email, we save your email address, but only use it for the purposes of
+                        correspondence with you. Macorma GmbH does not sell addresses.
+                        <br><br>
+                        Right to information <br>
+                        As a user of the macorma.com website, you always have the right to know what data we have stored
+                        about you. You also have the right to revoke your consent to the use of the personal data
+                        provided
+                        by you, effective from that point onward.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Button to trigger the popup -->
+        <button id="showPopupButton"
+            class="absolute bottom-4 left-1/2 tracking-[.3rem] text-center text-sm transform -translate-x-1/2 text-zinc-300 cursor-pointer  py-2 px-4 rounded-full">
+            IMPRESSUM
+        </button>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const video = document.getElementById('background-video');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (video.paused) {
+                playIcon.classList.remove('!hidden');
+                pauseIcon.classList.add('!hidden');
+            } else {
+                playIcon.classList.add('!hidden');
+                pauseIcon.classList.remove('!hidden');
+            }
+        });
+
+        playPauseButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+
+            playIcon.classList.toggle('!hidden');
+            pauseIcon.classList.toggle('!hidden');
+        });
+
+        // Popup functionality
+        const showPopupButton = document.getElementById('showPopupButton');
+        const popup = document.getElementById('popup');
+        const closePopupButton = document.getElementById('closePopup');
+
+        showPopupButton.addEventListener('click', () => {
+            popup.classList.add('active');
+        });
+
+        closePopupButton.addEventListener('click', () => {
+            popup.classList.remove('active');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.classList.remove('active');
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
