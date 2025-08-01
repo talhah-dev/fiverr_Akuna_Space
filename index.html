@@ -30,10 +30,10 @@
         </video>
 
         <!-- Overlay with text in the middle -->
-        <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center text-white">
+        <div class="absolute top-0 left-0 w-full h-full bg-black/60 flex justify-center items-center text-white">
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-1 md:text-4xl uppercase tracking-[.2rem]">Akuna Space</h1>
-                <p class="tracking-wider">ARTIST MANAGEMENT</p>
+                <h1 class="text-4xl font-bold mb-1 md:text-5xl uppercase tracking-[.2rem]">Akuna Space</h1>
+                <p class="tracking-wider md:text-lg">Adaptive Advisory</p>
             </div>
         </div>
 
@@ -50,22 +50,25 @@
         <!-- Popup -->
 
         <div id="popup" class="popup fixed fadeIn inset-0 bg-black/60 flex justify-center items-center z-50">
-            <div
-                class="bg-[#212529] p-6 rounded-md w-11/12 md:w-1/2 max-w-xl text-center relative ">
+            <div class="bg-[#212529] p-6 rounded-md w-11/12 md:w-1/2 max-w-xl text-center relative ">
                 <div class="overflow-y-auto max-h-[80vh] hide-scrollbar">
                     <button id="closePopup">
                         <i
                             class="fa-solid text-zinc-400 fa-xmark  text-2xl text-sm cursor-pointer absolute top-4 right-4"></i>
                     </button>
                     <h2 class="mb-2 text-white text-sm font-black tracking-[.3rem]">Akuna Space</h2>
-                    <h2 class="mb-8 text-white text-sm tracking-[.2rem]">ARTIST MANAGEMENT</h2>
-                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> KOEPENICKER STR. 6A | 10997 BERLIN</p>
-                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> T: +49 (0) 30 695 060 25</p>
-                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> <a href="mailto:rose.at.akuna@gmail.com">rose.at.akuna@gmail.com</a></p>
+                    <h2 class="mb-8 text-white text-sm tracking-[.2rem]">Adaptive Advisory </h2>
+                    <!-- <p class="mb-2 text-white text-sm tracking-[.2rem]"> KOEPENICKER STR. 6A | 10997 BERLIN</p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> T: +49 (0) 30 695 060 25</p> -->
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> <a
+                            href="mailto:rose.at.akuna@gmail.com" class="underline">rose.at.akuna@gmail.com</a></p>
+                    <p class="mb-2 text-white text-sm tracking-[.2rem]"> At Akuna Space, we don’t just consult — we
+                        evolve with you. Our adaptive advisory model blends legal, financial, and strategic insight and
+                        advice to design frameworks that flex with your business and the world around it.</p>
                     <p class="mb-2 text-white text-sm tracking-[.2rem]"> Managing Director: Markus Scholz</p>
                     <p class="mb-2 text-white text-sm tracking-[.2rem]"> Amtsgericht Charlottenburg, HRB 192869B</p>
                     <h2 class="mb-2 text-white text-sm font-black tracking-[.2rem] mt-10">Data Privacy</h2>
-                    <p class="mb-2 text-white text-sm font-medium">
+                    <p class="mb-2 text-white text-sm tracking-wider font-medium">
                         Protection of personal data <br>
                         We explicitly point out that data transmitted over the Internet (e.g. via email communications)
                         contains security gaps and cannot be entirely protected against access by third parties.
@@ -98,60 +101,13 @@
 
         <!-- Button to trigger the popup -->
         <button id="showPopupButton"
-            class="absolute bottom-4 left-1/2 tracking-[.3rem] text-center text-sm transform -translate-x-1/2 text-zinc-300 cursor-pointer  py-2 px-4 rounded-full">
-            IMPRESSUM
+            class="absolute bottom-4 left-1/2 tracking-[.3rem] text-center text-sm transform -translate-x-1/2 text-zinc-300 cursor-pointer uppercase py-2 px-4 rounded-full">
+            Contact
         </button>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script>
-        const playPauseButton = document.getElementById('playPauseButton');
-        const playIcon = document.getElementById('playIcon');
-        const pauseIcon = document.getElementById('pauseIcon');
-        const video = document.getElementById('background-video');
-
-        window.addEventListener('DOMContentLoaded', () => {
-            if (video.paused) {
-                playIcon.classList.remove('!hidden');
-                pauseIcon.classList.add('!hidden');
-            } else {
-                playIcon.classList.add('!hidden');
-                pauseIcon.classList.remove('!hidden');
-            }
-        });
-
-        playPauseButton.addEventListener('click', () => {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-
-            playIcon.classList.toggle('!hidden');
-            pauseIcon.classList.toggle('!hidden');
-        });
-
-        // Popup functionality
-        const showPopupButton = document.getElementById('showPopupButton');
-        const popup = document.getElementById('popup');
-        const closePopupButton = document.getElementById('closePopup');
-
-        showPopupButton.addEventListener('click', () => {
-            popup.classList.add('active');
-        });
-
-        closePopupButton.addEventListener('click', () => {
-            popup.classList.remove('active');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === popup) {
-                popup.classList.remove('active');
-            }
-        });
-
-    </script>
+    <script src="/docs/javascript/global.js"></script>
 
 </body>
 
